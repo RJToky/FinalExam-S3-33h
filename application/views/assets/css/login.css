@@ -27,7 +27,7 @@
 {
     display: flex;
     justify-content: center;
-    margin-top: 2.5em;
+    margin-top: 2em;
     font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
 }
 
@@ -73,6 +73,12 @@ i
 {
     font-size: 1.5em;
     margin-right: 1em;
+}
+
+.lien
+{
+    display: flex;
+    justify-content: center;
 }
 
 /* sign in */
