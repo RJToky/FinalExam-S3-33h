@@ -8,8 +8,14 @@ class HomeController extends CI_Controller {
     }
     
     public function index() {
+        $this->load->model("categories");
+        $categ = new Categories();
+
+        $data["listCateg"] = $categ->getListCategories();
+
         $this->load->view("back_office/header");
-        $this->load->view("back_office/footer");
+        $this->load->view("back_office/gestion_categ", $data);
+        $this->load->view("footer");
     }
     
 }

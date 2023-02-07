@@ -9,7 +9,7 @@ class Personne extends CI_Model {
     private $isAdmin;
 
     public function check($email, $pwd) {
-        $sql = "SELECT * FROM Personne WHERE (email = %s OR nomPers = %s) AND pwd = %s";
+        $sql = "SELECT * FROM personne WHERE (email = %s OR nomPers = %s) AND pwd = %s";
         $sql = sprintf($sql, $this->db->escape($email), $this->db->escape($email), $this->db->escape($pwd));
 
         $query = $this->db->query($sql);
