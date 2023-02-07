@@ -27,7 +27,7 @@ class Personne extends CI_Model {
     }
 
     public function inscrire($nom, $email, $pwd) {
-        $sql = "INSERT INTO Personne VALUES (DEFAULT, %s, %s, %s, 0)";
+        $sql = "INSERT INTO personne VALUES (DEFAULT, %s, %s, %s, 0)";
         $sql = sprintf($sql, $this->db->escape($nom), $this->db->escape($email), $this->db->escape($pwd));
 
         $this->db->query($sql);
