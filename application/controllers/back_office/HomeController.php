@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class HomeController extends CI_Controller {
+include "SecureController";
+class HomeController extends SecureController {
 
     public function __construct() {
         parent::__construct();

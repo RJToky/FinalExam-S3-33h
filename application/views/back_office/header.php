@@ -58,7 +58,7 @@
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <div class="buttons">
-                                <a class="button is-warning">
+                                <a class="button is-warning" href="<?php echo base_url("loginController/logout"); ?>">
                                     Log out
                                 </a>
                             </div>

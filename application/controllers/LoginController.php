@@ -43,5 +43,10 @@ class LoginController extends CI_Controller {
         $personne->inscrire($nom, $email, $pwd);
         redirect(base_url("loginController/"));
     }
+
+    public function logout() {
+        $this->session->unset_userdata("idPers");
+        redirect(base_url("loginController/"));
+    }
     
 }

@@ -10,6 +10,7 @@
                 <tr>
                     <th> idObjet </th>
                     <th> idPersonne </th>
+                    <th> Nom </th>
                     <th> Categorie </th>
                     <th> Prix </th>
                 </tr>
@@ -18,6 +19,7 @@
                 <tr>
                     <td> 1 </td>
                     <td> 1 </td>
+                    <td> Kapoty </td>
                     <td>
                         <div class="select">
                             <select name="" id="">
