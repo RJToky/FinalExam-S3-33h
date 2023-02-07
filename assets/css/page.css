@@ -1,0 +1,10 @@
+header
+{
+    width: 100%;
+    position: fixed;
+}
+
+.navbar
+{
+    background-color: rgb(236, 236, 236);
+}
