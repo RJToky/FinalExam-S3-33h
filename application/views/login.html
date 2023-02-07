@@ -7,44 +7,34 @@
     <link rel="stylesheet" href="./assets/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.2.1-web/css/all.min.css">
-    <title>Document</title>
+    <title>Log in</title>
 </head>
 <body>
     <div class="container">
         <div class="box">
-            <p class="subtitle is-1 log_in"> Log in </p>
-            <div class="columns">
-                <div class="column">
-                    <figure class="image">
-                        <img src="./assets/img/login.jfif">
-                    </figure>
-                </div>
-                <div class="column">
-                    <p class="subtitle is-3 site_name"> e-Fanakalo </p>
-                    <p class="item"> Username or email : </p>
-                    <input class="input" type="text" placeholder="Username or email">
-                    <br><br>
-                    <p class="item"> Password : </p>
-                    <input class="input" type="password" placeholder="Password">
-                    <br>
-                    <div class="botona">
-                        <button class="button log_button"> Se connecter </button>
+            <form action="" method="post">
+                <p class="subtitle is-1 log_in"> Log in </p>
+                <div class="columns">
+                    <div class="column">
+                        <figure class="image">
+                            <img src="./assets/img/login.jfif">
+                        </figure>
                     </div>
-                    <hr style="height: .2em;">
-                    <button class="button is-info log_with_fb"> 
-                        <i class="fab fa-facebook"></i>
-                        Se connecter avec Facebook 
-                    </button>
-                    <button class="button is-light log_with_google"> 
-                        <i class="fab fa-google"></i>
-                        Se connecter avec Google 
-                    </button>
-                    <button class="button is-primary log_with_google"> 
-                        <i class="fab fa-twitter"></i>
-                        Se connecter avec Twitter 
-                    </button>
+                    <div class="column">
+                        <p class="subtitle is-2 site_name"> e-Fanakalo </p>
+                        <br>
+                        <p class="item"> Username or email : </p>
+                        <input class="input" type="text" placeholder="Username or email">
+                        <br><br>
+                        <p class="item"> Password : </p>
+                        <input class="input" type="password" placeholder="Password">
+                        <br><br>
+                        <div class="botona">
+                            <button class="button log_button"> Se connecter </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>

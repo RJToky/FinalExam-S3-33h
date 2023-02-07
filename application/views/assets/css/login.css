@@ -1,6 +1,19 @@
+@font-face {
+    font-family: "Baxoe";
+    src: url("../font/Baxoe.ttf");
+}
+@font-face {
+    font-family: "stocky";
+    src: url("../font/stocky.ttf");
+}
+@font-face {
+    font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
+    src: url("../font/Tornado\ Italic\ Serif\ Font\ -\ Demo.otf");
+}
+
 .container
 {
-    width: 50%;
+    width: 60%;
 }
 
 .log_in
@@ -12,9 +25,10 @@
 
 .site_name
 {
-    font-family: serif;
     display: flex;
     justify-content: center;
+    margin-top: 2.5em;
+    font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
 }
 
 .input
@@ -37,13 +51,6 @@
     transition: .3s;
     border-radius: 20px;
     margin-top: 1em;
-}
-
-.log_button:hover
-{
-    color: white;
-    border-color: rgb(127, 255, 150);
-    background-color: rgb(127, 255, 150);
 }
 
 .botona
@@ -69,11 +76,14 @@ i
 }
 
 /* sign in */
-.container_signin
-{
-    width: 70%;
-}
 .sign_button
 {
     width: 35%;
+}
+.site_name_signin
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
 }

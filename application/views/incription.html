@@ -7,50 +7,40 @@
     <link rel="stylesheet" href="./assets/bulma/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="./assets/fontawesome-free-6.2.1-web/css/all.min.css">
-    <title>Document</title>
+    <title>Sign in</title>
 </head>
 <body>
-    <div class="container container_signin">
+    <div class="container container_login">
         <div class="box">
-            <p class="subtitle is-1 log_in"> Sign in </p>
-            <div class="columns">
-                <div class="column">
-                    <figure class="image">
-                        <img src="./assets/img/inscription.jfif">
-                    </figure>
-                </div>
-                <div class="column">
-                    <p class="subtitle is-3 site_name"> e-Fanakalo </p>
-                    <p class="item"> First name : </p>
-                    <input class="input" type="text" placeholder="First name">
-                    <br><br>
-                    <p class="item"> Name : </p>
-                    <input class="input" type="text" placeholder="Name">
-                    <br><br>
-                    <p class="item"> Username or email : </p>
-                    <input class="input" type="text" placeholder="Username or email">
-                    <br><br>
-                    <p class="item"> Password : </p>
-                    <input class="input" type="password" placeholder="Password">
-                    <br>
-                    <div class="botona">
-                        <button class="button sign_button"> S'inscrire </button>
+            <form action="" method="post">
+                <p class="subtitle is-1 log_in"> Sign in </p>
+                <div class="columns">
+                    <div class="column">
+                        <figure class="image">
+                            <img src="./assets/img/inscription.jfif">
+                        </figure>
                     </div>
-                    <hr style="height: .2em;">
-                    <button class="button is-info log_with_fb"> 
-                        <i class="fab fa-facebook"></i>
-                        Sign in with Facebook 
-                    </button>
-                    <button class="button is-light log_with_google"> 
-                        <i class="fab fa-google"></i>
-                        Sign in with Google 
-                    </button>
-                    <button class="button is-primary log_with_google"> 
-                        <i class="fab fa-twitter"></i>
-                        Sign in with Twitter 
-                    </button>
+                    <div class="column">
+                        <p class="subtitle is-2 site_name_signin"> e-Fanakalo </p>
+                        <br>
+                        <p class="item"> First name : </p>
+                        <input class="input" type="text" placeholder="First name">
+                        <br><br>
+                        <p class="item"> Name : </p>
+                        <input class="input" type="text" placeholder="Name">
+                        <br><br>
+                        <p class="item"> Username or email : </p>
+                        <input class="input" type="text" placeholder="Username or email">
+                        <br><br>
+                        <p class="item"> Password : </p>
+                        <input class="input" type="password" placeholder="Password">
+                        <br><br>
+                        <div class="botona">
+                            <button class="button sign_button"> S'inscrire </button>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </body>
