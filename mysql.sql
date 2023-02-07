@@ -38,9 +38,9 @@ CREATE TABLE takalo(
     isTakalo boolean
 );
 
-insert into personne values(default,'Toky','toky@gmail.com','toky',null);
-insert into personne values(default,'Judi','judi@gmail.com','judi',null);
-insert into personne values(default,'Mirindra','mirindra@gmail.com','mirindra',null);
+insert into personne values(default,'Toky','toky@gmail.com','toky',0);
+insert into personne values(default,'Judi','judi@gmail.com','judi',0);
+insert into personne values(default,'Mirindra','mirindra@gmail.com','mirindra',0);
 
 
 insert into categories values(default,'Akanjo');
@@ -48,15 +48,15 @@ insert into categories values(default,'Accessoires');
 insert into categories values(default,'Boky');
 insert into categories values(default,'High_tech');
 
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
-insert into objet values(default,,,,,);
+insert into objet values(default,1,1,,,);
+insert into objet values(default,2,2,,,);
+insert into objet values(default,3,3,,,);
+insert into objet values(default,1,4,,,);
+insert into objet values(default,2,1,,,);
+insert into objet values(default,3,2,,,);
+insert into objet values(default,1,3,,,);
+insert into objet values(default,2,4,,,);
+insert into objet values(default,3,1,,,);
 
 insert into photoObj values();
 insert into photoObj values();
