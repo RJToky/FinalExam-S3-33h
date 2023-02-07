@@ -1,18 +1,17 @@
-header
-{
-    width: 100%;
-    position: fixed;
-    z-index: 999;
-}
-
-.navbar
-{
-    background-color: rgb(236, 236, 236);
-}
-
 main
 {
     min-height: 70vh;
+}
+
+.item
+{
+    display: flex;
+    justify-content: center;
+}
+
+.button
+{
+    width: 100%;
 }
 
 .table
@@ -20,11 +19,12 @@ main
     width: 100%;
 }
 
-.footer
+.js-modal-trigger
 {
-    clear: both;
-    margin-top: 2em;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    position: fixed;
+    bottom: 12vh;
+    right: 9vh;
+    border-radius: 100%;
+    width: 4%;
+    height: 8%;
 }
