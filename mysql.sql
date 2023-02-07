@@ -38,6 +38,13 @@ CREATE TABLE takalo(
     isTakalo boolean
 );
 
+select photoObj.nomPhoto from photoObj join objet on objet.idObjet = photoObj.idObjet;
+select objet.prixObj from objet join personne on personne.nomPers = objet.idObjet;
+
+select objet.nomObj, photoObj.nomPhoto, objet.prixObj, personne.nomPers from objet 
+    join photoObj on photoObj.idObjet = objet.idObjet
+    join personne on personne.idPers = objet.idPers;
+
 insert into personne values(default,'Toky','toky@gmail.com','toky',0);
 insert into personne values(default,'Judi','judi@gmail.com','judi',0);
 insert into personne values(default,'Mirindra','mirindra@gmail.com','mirindra',0);
@@ -68,18 +75,14 @@ insert into photoObj values(default,1,'jean.jpg');
 insert into photoObj values(default,2,'polo.jpg');
 insert into photoObj values(default,3,'jogging.jpg');
 
-insert into photoObj values(default,1,'lunettes.jpg');
-insert into photoObj values(default,2,'casquette.jpg');
-insert into photoObj values(default,3,'montre.jpg');
+insert into photoObj values(default,4,'lunettes.jpg');
+insert into photoObj values(default,5,'casquette.jpg');
+insert into photoObj values(default,6,'montre.jpg');
 
-insert into photoObj values(default,1,'harry_potter.jpg');
-insert into photoObj values(default,2,'Maigret.jpg');
-insert into photoObj values(default,3,'dune.jpg');
+insert into photoObj values(default,7,'harry_potter.jpg');
+insert into photoObj values(default,8,'Maigret.jpg');
+insert into photoObj values(default,9,'dune.jpg');
 
-insert into photoObj values(default,1,'ordinateur.jpg');
-insert into photoObj values(default,2,'souris.jpg');
-insert into photoObj values(default,3,'Unite_central.jpg');
-
-
-
-select no
+insert into photoObj values(default,10,'ordinateur.jpg');
+insert into photoObj values(default,11,'souris.jpg');
+insert into photoObj values(default,12,'Unite_central.jpg');
