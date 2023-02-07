@@ -5,22 +5,26 @@ class LoginController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model("personne");
     }
     
     public function index() {
-        $this->load->view("login");
+        $personne = new Personne();
+
+        $data["admin"] = $personne->getAdmin();
+        $this->load->view("login", $data);
     }
 
     public function checkUser() {
         $email = $this->input->post("email");
         $pwd = $this->input->post("pwd");
 
-        $this->load->model("personne");
         $personne = new Personne();
 
         if($personne->check($email, $pwd)) {
+            $this->session->set_userdata("idPers", $personne->getIdPers());
+
             if($personne->getIsAdmin() == 1) {
-                $this->session->set_userdata("idPers", $personne->getIdPers());
                 redirect(base_url("back_office/homeController/"));
             }
             redirect(base_url("front_office/homeController/"));

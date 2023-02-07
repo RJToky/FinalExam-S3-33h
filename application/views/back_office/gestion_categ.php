@@ -4,7 +4,6 @@
  * @var mixed $listObj
  */
 ?>
-
 <main>
     <div class="container">
         <table class="table">

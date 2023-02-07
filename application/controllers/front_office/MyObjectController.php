@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-include "SecureController.php";
-class HomeController extends SecureController {
+class MyObjectController extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -10,12 +9,13 @@ class HomeController extends SecureController {
     }
     
     public function index() {
+
         $objUser = new ObjectUser();
 
-        $data["listObjUser"] = $objUser->getListObjectUser($this->session->idPers);
+        $data["listMyObject"] = $objUser->getListMyObject($this->session->idPers);
 
         $this->load->view("front_office/header");
-        $this->load->view("front_office/list_object", $data);
+        $this->load->view("front_office/my_object", $data);
         $this->load->view("footer");
     }
     

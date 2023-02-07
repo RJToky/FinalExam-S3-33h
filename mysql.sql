@@ -1,5 +1,5 @@
 CREATE TABLE personne (
-    idPers serial PRIMARY KEY,
+    idPers int PRIMARY KEY auto_increment,
     nomPers varchar(50),
     email varchar(50),
     pwd varchar(50),
@@ -7,14 +7,14 @@ CREATE TABLE personne (
 );
 
 CREATE TABLE categories (
-    idCat serial PRIMARY KEY,
+    idCat int PRIMARY KEY auto_increment,
     nomCat varchar(50)
 );
 
 CREATE TABLE objet(
-    idObjet serial PRIMARY KEY,
-    idPers bigint(20) unsigned,
-    idCat bigint(20) unsigned,
+    idObjet int PRIMARY KEY auto_increment,
+    idPers int,
+    idCat int,
     nomObj varchar(50),
     description varchar(100),
     prixObj float ,
@@ -23,16 +23,16 @@ CREATE TABLE objet(
 );
 
 CREATE TABLE photoObj(
-    idPhotoObj serial PRIMARY KEY,
-    idObjet bigint(20) unsigned,
+    idPhotoObj int PRIMARY KEY auto_increment,
+    idObjet int,
     nomPhoto varchar(50),
     foreign key (idObjet) references objet(idObjet)
 );
 
 CREATE TABLE takalo(
-    idTakalo serial PRIMARY KEY,
-    idAlefa bigint(20) unsigned,
-    idAlaina bigint(20) unsigned,
+    idTakalo int PRIMARY KEY auto_increment,
+    idAlefa int,
+    idAlaina int,
     isTakalo boolean,
     foreign key (idAlefa) references objet(idObjet),
     foreign key (idAlaina) references objet(idObjet)
@@ -48,19 +48,19 @@ insert into categories values(default,'Accessoires');
 insert into categories values(default,'Boky');
 insert into categories values(default,'High_tech');
 
-insert into objet values(default,1,1,'jean','pantalon à couture',150000);
+insert into objet values(default,2,1,'jean','pantalon à couture',150000);
 insert into objet values(default,2,1,'polo','vetement haut',100000);
 insert into objet values(default,3,1,'jogging','confortable et chaud',200000);
 
-insert into objet values(default,1,1,'lunettes','filtration de lumière',75000);
+insert into objet values(default,3,1,'lunettes','filtration de lumière',75000);
 insert into objet values(default,2,1,'casquette','à proteger la tête du soleil',50000);
 insert into objet values(default,3,1,'montre','dispositif mécanique',200000);
 
-insert into objet values(default,1,1,'harry_potter','Harry potter à l ecole des sorciers',100000);
+insert into objet values(default,2,1,'harry_potter','Harry potter à l ecole des sorciers',100000);
 insert into objet values(default,2,1,'Maigret','un roman policier de Georges Simenon',75000);
 insert into objet values(default,3,1,'dune','un roman de science-fiction ',75000);
 
-insert into objet values(default,1,1,'ordinateur','système de traitement de l information programmable',2000000);
+insert into objet values(default,3,1,'ordinateur','système de traitement de l information programmable',2000000);
 insert into objet values(default,2,1,'souris','dispositif de pointage pour ordinateur',200000);
 insert into objet values(default,3,1,'Unite_central','le boitier contenant tout le matériel électronique ',1000000);
 
@@ -70,7 +70,7 @@ insert into photoObj values(default,3,'jogging.jpg');
 
 insert into photoObj values(default,4,'lunettes.jpg');
 insert into photoObj values(default,5,'casquette.jpg');
-insert into photoObj values(default,6,'montre.jpg');
+insert into photoObj values(default,6,'montre.JPG');
 
 insert into photoObj values(default,7,'harry_potter.jpg');
 insert into photoObj values(default,8,'Maigret.jpg');
@@ -80,14 +80,13 @@ insert into photoObj values(default,10,'ordinateur.jpg');
 insert into photoObj values(default,11,'souris.jpg');
 insert into photoObj values(default,12,'Unite_central.jpg');
 
-select photoObj.nomPhoto from photoObj join objet on objet.idObjet = photoObj.idObjet;
-select objet.prixObj from objet join personne on personne.nomPers = objet.idObjet;
+create or replace view objectUser as
+    select objet.idObjet, objet.nomObj, photoObj.nomPhoto, objet.prixObj, personne.idPers, personne.nomPers
+        from objet
+        join photoObj on photoObj.idObjet = objet.idObjet
+        join personne on personne.idPers = objet.idPers;
 
-select objet.nomObj, photoObj.nomPhoto, objet.prixObj, objet.idCat, personne.nomPers from objet
-    join photoObj on photoObj.idObjet = objet.idObjet
-    join personne on personne.idPers = objet.idPers;
-
-drop table photoObj cascade;
-drop table objet cascade;
-drop table categories cascade;
-drop table personne cascade;
+-- drop table photoObj cascade;
+-- drop table objet cascade;
+-- drop table categories cascade;
+-- drop table personne cascade;
