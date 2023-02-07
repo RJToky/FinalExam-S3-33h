@@ -27,7 +27,7 @@
                         <input class="input" type="text" placeholder="Name" name="nom" required>
                         <br><br>
                         <p class="item"> Email : </p>
-                        <input class="input" type="text" placeholder="Email" name="email" required>
+                        <input class="input" type="email" placeholder="Email" name="email" required>
                         <br><br>
                         <p class="item"> Password : </p>
                         <input class="input" type="password" placeholder="Password" name="pwd" required>
