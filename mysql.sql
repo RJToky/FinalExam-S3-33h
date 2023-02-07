@@ -12,8 +12,8 @@ CREATE TABLE categories (
 
 CREATE TABLE objet(
     idObjet serial PRIMARY KEY,
-    idPers int,
-    idCat int ,
+    idPers bigint(20) unsigned,
+    idCat bigint(20) unsigned,
     nomObj varchar(50),
     description varchar(100),
     prixObj float ,
@@ -23,16 +23,18 @@ CREATE TABLE objet(
 
 CREATE TABLE photoObj(
     idPhotoObj serial PRIMARY KEY,
-    idObjet int,
+    idObjet int bigint(20) unsigned,
     nomPhoto varchar(50),
     foreign key (idObjet) references objet(idObjet)
 );
 
 CREATE TABLE takalo(
     idTakalo serial PRIMARY KEY,
-    idAlefa int,
-    idAlaina int,
-    isTakalo boolean
+    idAlefa int bigint(20) unsigned,
+    idAlaina int bigint(20) unsigned,
+    isTakalo boolean,
+    foreign key (idAlefa) references objet(idObjet),
+    foreign key (idAlaina) references objet(idObjet)
 );
 
 insert into personne values(default,'Toky','toky@gmail.com','toky',1);
