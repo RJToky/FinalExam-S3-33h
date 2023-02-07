@@ -23,15 +23,15 @@ CREATE TABLE objet(
 
 CREATE TABLE photoObj(
     idPhotoObj serial PRIMARY KEY,
-    idObjet int bigint(20) unsigned,
+    idObjet bigint(20) unsigned,
     nomPhoto varchar(50),
     foreign key (idObjet) references objet(idObjet)
 );
 
 CREATE TABLE takalo(
     idTakalo serial PRIMARY KEY,
-    idAlefa int bigint(20) unsigned,
-    idAlaina int bigint(20) unsigned,
+    idAlefa bigint(20) unsigned,
+    idAlaina bigint(20) unsigned,
     isTakalo boolean,
     foreign key (idAlefa) references objet(idObjet),
     foreign key (idAlaina) references objet(idObjet)
