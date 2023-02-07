@@ -10,9 +10,12 @@ class HomeController extends SecureController {
     
     public function index() {
         $this->load->model("categories");
+        $this->load->model("objet");
         $categ = new Categories();
+        $obj = new Objet();
 
         $data["listCateg"] = $categ->getListCategories();
+        $data["listObj"] = $obj->getListObject();
 
         $this->load->view("back_office/header");
         $this->load->view("back_office/gestion_categ", $data);

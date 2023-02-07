@@ -13,6 +13,17 @@ class Objet extends CI_Model {
         
     }
 
+    public function getListObject() {
+        $sql = "SELECT * FROM objet";
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
     /**
      * @return mixed
      */

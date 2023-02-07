@@ -1,6 +1,7 @@
 <?php
 /**
  * @var mixed $listCateg
+ * @var mixed $listObj
  */
 ?>
 <main>
@@ -13,26 +14,29 @@
                     <th> Nom </th>
                     <th> Categorie </th>
                     <th> Prix </th>
+                    <th>  </th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td> 1 </td>
-                    <td> 1 </td>
-                    <td> Kapoty </td>
-                    <td>
-                        <div class="select">
-                            <select name="" id="">
-                                <option value="">Null</option>
-                                <?php for($i = 0; $i < count($listCateg); $i++) { ?>
-                                    <option value="<?php echo $listCateg[$i]["idCat"]; ?>"><?php echo $listCateg[$i]["nomCat"]; ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </td>
-                    <td> 0000 Ar </td>
-                    <td><button class="button is-success"> Valider </button></td>
-                </tr>
+                <?php for($i = 0; $i < count($listObj); $i++) { ?>
+                    <tr>
+                        <td> <?php echo $listObj[$i]["idObjet"]; ?> </td>
+                        <td> <?php echo $listObj[$i]["idPers"]; ?> </td>
+                        <td> <?php echo $listObj[$i]["nomObj"]; ?> </td>
+                        <td>
+                            <div class="select">
+                                <select name="" id="">
+                                    <option value="">Null</option>
+                                    <?php for($j = 0; $j < count($listCateg); $j++) { ?>
+                                        <option value="<?php echo $listCateg[$j]["idCat"]; ?>"><?php echo $listCateg[$j]["nomCat"]; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </td>
+                        <td> <?php echo $listObj[$i]["prixObj"]; ?> Ar </td>
+                        <td><button class="button is-success"> Valider </button></td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
