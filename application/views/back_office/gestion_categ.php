@@ -25,12 +25,14 @@
                         <td> <?php echo $listObj[$i]["nomObj"]; ?> </td>
                         <td>
                             <div class="select">
-                                <select name="" id="">
-                                    <option value="">Null</option>
-                                    <?php for($j = 0; $j < count($listCateg); $j++) { ?>
-                                        <option value="<?php echo $listCateg[$j]["idCat"]; ?>"><?php echo $listCateg[$j]["nomCat"]; ?></option>
-                                    <?php } ?>
-                                </select>
+                                <form action="<?php echo base_url("back_office/homeController"); ?>">
+                                    <select name="<?php echo $listObj[$i]["idObjet"]; ?>" required>
+                                        <option value="">Null</option>
+                                        <?php for($j = 0; $j < count($listCateg); $j++) { ?>
+                                            <option value="<?php echo $listCateg[$j]["idCat"]; ?>"><?php echo $listCateg[$j]["nomCat"]; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </form>
                             </div>
                         </td>
                         <td> <?php echo $listObj[$i]["prixObj"]; ?> Ar </td>
