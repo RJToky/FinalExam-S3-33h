@@ -28,21 +28,24 @@
             <i class="fas fa-plus"></i>
         </figure>
     </button>
-    <div id="modal-add-objet" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <p class="subtitle is-4 modal_subtitle">Add new object</p>
-                <input class="input" type="text" placeholder="Object name">
-                <input class="input modal_input" type="text" placeholder="Description">
-                <input class="input modal_input" type="number" placeholder="Object price">
-                <input class="input modal_input" type="file" placeholder="Photo">
-                <div class="div_modal_btn">
-                    <button class="button is-primary"> Ajouter </button>
+    <form action="<?php echo base_url("front_office/myObjectController/uploadObject"); ?>" method="post">
+        <div id="modal-add-objet" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <p class="subtitle is-4 modal_subtitle">Add new object</p>
+                    <input class="input" type="text" placeholder="Object name" name="nomObj" required>
+                    <input class="input modal_input" type="text" placeholder="Description" name="description" required>
+                    <input class="input modal_input" type="number" placeholder="Object price" name="prixObj" required>
+                    <input class="input modal_input" type="file" placeholder="Photo" name="nomPhoto" required>
+                    <div class="div_modal_btn">
+                        <button class="button is-primary"> Ajouter </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
+
     <button class="modal-close is-large" aria-label="close"></button>
     <script src="<?php echo base_url("assets/js/script.js"); ?>"></script>
 </main>
