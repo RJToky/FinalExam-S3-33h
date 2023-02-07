@@ -19,12 +19,17 @@ class LoginController extends CI_Controller {
         $personne = new Personne();
 
         if($personne->check($email, $pwd)) {
-            if($personne->getIsAdmin()) {
-                $this->session->set_userdata("idPersonne", $personne->getIdPersonne());
-                redirect(site_url(""));
+            if($personne->getIsAdmin() == 1) {
+                $this->session->set_userdata("idPers", $personne->getIdPers());
+                redirect(base_url("back_office/homeController/"));
             }
-            redirect(site_url("loginController/index"));
+            redirect(base_url("front_office/homeController/"));
         }
+        redirect(base_url("loginController/"));
+    }
+
+    public function inscription() {
+        $this->load->view("inscription");
     }
 
     public function inscrire() {
@@ -36,7 +41,7 @@ class LoginController extends CI_Controller {
         $personne = new Personne();
 
         $personne->inscrire($nom, $email, $pwd);
-        redirect(site_url("loginController/index"));
+        redirect(base_url("loginController/"));
     }
     
 }
