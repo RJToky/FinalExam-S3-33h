@@ -1,0 +1,42 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class MyObjectController extends CI_Controller {
+
+    public function __construct() {
+        parent::__construct();
+        $this->load->model("objectUser");
+        $this->load->model("objet");
+    }
+    
+    public function index() {
+
+        $objUser = new ObjectUser();
+
+        $data["listMyObject"] = $objUser->getListMyObject($this->session->idPers);
+
+        $this->load->view("front_office/header");
+        $this->load->view("front_office/my_object", $data);
+        $this->load->view("footer");
+    }
+
+    public function uploadObject() {
+        $idPers = $this->session->idPers;
+        $nomObj = $this->input->post("nomObj");
+        $description = $this->input->post("description");
+        $prixObj = $this->input->post("prixObj");
+        $nomPhoto = $this->input->post("nomPhoto");
+
+//        $obj = new Objet();
+//        $obj->addObject($idPers, $nomObj, $description, $prixObj, $nomPhoto);
+
+//        $dossier = '../assets/img/';
+//
+//        $newNamer = randomName().".jpg";
+//
+//        if(move_uploaded_file($file['tmp_name'], $dossier . $newNamer)) {
+//            return $newNamer;
+//        }
+    }
+    
+}

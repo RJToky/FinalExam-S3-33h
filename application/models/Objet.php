@@ -30,7 +30,24 @@ class Objet extends CI_Model {
 
         $this->db->query($sql);
     }
+    
+    public function addObject($idPers, $nomObj, $description, $prixObj, $nomPhoto) {
+        $sql = "INSERT INTO objet VALUES (DEFAULT, %s, 1, %s, %s, %s)";
+        $sql = sprintf($sql, $this->db->escape($idPers), $this->db->escape($nomObj), $this->db->escape($description), $prixObj);
+        $this->db->query($sql);
 
+        $sql = "INSERT INTO photoObj VALUES (DEFAULT, %s, %s)";
+        $sql = sprintf($sql, $this->db->escape($this->getLastId()), $this->db->escape($nomPhoto));
+        $this->db->query($sql);
+    }
+
+    public function getLastId() {
+        $sql = "SELECT MAX(idobjet) AS lastId FROM objet";
+        $query = $this->db->query($sql);
+
+        $row = $query->row_array();
+        return $row["lastId"];
+    }
     /**
      * @return mixed
      */

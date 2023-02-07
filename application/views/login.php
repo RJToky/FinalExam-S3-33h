@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var mixed $admin
+ */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,10 +30,10 @@
                             <p class="subtitle is-2 site_name"> e-Fanakalo </p>
                             <br>
                             <p class="item"> Username or email : </p>
-                            <input class="input" type="text" placeholder="Username or email" name="email" required>
+                            <input class="input" type="text" placeholder="Username or email" name="email" value="<?php echo $admin["email"]; ?>" required>
                             <br><br>
                             <p class="item"> Password : </p>
-                            <input class="input" type="password" placeholder="Password" name="pwd" required>
+                            <input class="input" type="password" placeholder="Password" name="pwd" value="<?php echo $admin["pwd"]; ?>" required>
                             <br><br>
                             <div class="botona">
                                 <button class="button log_button"> Se connecter </button>
