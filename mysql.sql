@@ -19,13 +19,16 @@ CREATE TABLE objet(
     idCat int , 
     nomObj varchar(50),
     description varchar(100),
-    prixObj float 
+    prixObj float ,
+    foreign key (idPers) references personne(idPers),
+    foreign key (idCat) references categories(idCat)
 );
 
 CREATE TABLE photoObj(
     idPhotoObj serial PRIMARY KEY,
     idObjet int,
-    nomPhoto varchar(50)
+    nomPhoto varchar(50),
+    foreign key (idObjet) references objet(idObjet)
 );
 
 CREATE TABLE takalo(
@@ -35,22 +38,25 @@ CREATE TABLE takalo(
     isTakalo boolean
 );
 
-ALTER TABLE objet add foreign key (idPers) references personne(idPers);
-ALTER TABLE objet add foreign key (idCat) references categories(idCat);
-ALTER TABLE photoObj add foreign key (idObjet) references objet(idObjet);
-
 insert into personne values(default,'Toky','toky@gmail.com','toky',null);
 insert into personne values(default,'Judi','judi@gmail.com','judi',null);
 insert into personne values(default,'Mirindra','mirindra@gmail.com','mirindra',null);
 
 
-insert into categories values();
-insert into categories values();
-insert into categories values();
+insert into categories values(default,'Akanjo');
+insert into categories values(default,'Accessoires');
+insert into categories values(default,'Boky');
+insert into categories values(default,'High_tech');
 
-insert into objet values();
-insert into objet values();
-insert into objet values();
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
+insert into objet values(default,,,,,);
 
 insert into photoObj values();
 insert into photoObj values();
