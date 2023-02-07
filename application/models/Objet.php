@@ -24,6 +24,13 @@ class Objet extends CI_Model {
         return $data;
     }
 
+    public function updateCategory($idObjet, $idCat) {
+        $sql = "UPDATE objet SET idCat = %s WHERE idObjet = %s";
+        $sql = sprintf($sql, $this->db->escape($idCat), $this->db->escape($idObjet));
+
+        $this->db->query($sql);
+    }
+
     /**
      * @return mixed
      */
