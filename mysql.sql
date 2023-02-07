@@ -82,8 +82,4 @@ insert into photoObj values(default,3,'Unite_central.jpg');
 
 
 
-insert into takalo values(,,,);
-insert into takalo values(,,,);
-insert into takalo values(,,,);
-
 select no
