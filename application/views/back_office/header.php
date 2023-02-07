@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?php echo base_url("assets/bulma/css/bulma.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("assets/css/page.css"); ?>">
+        <link rel="shortcut icon" href="<?php echo base_url("assets/img/logoPage.jpg"); ?>" type="image/x-icon">
         <title>e-Fanakalo</title>
     </head>
     <body>
