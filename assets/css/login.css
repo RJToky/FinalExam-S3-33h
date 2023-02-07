@@ -1,0 +1,95 @@
+@font-face {
+    font-family: "Baxoe";
+    src: url("../font/Baxoe.ttf");
+}
+@font-face {
+    font-family: "stocky";
+    src: url("../font/stocky.ttf");
+}
+@font-face {
+    font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
+    src: url("../font/Tornado\ Italic\ Serif\ Font\ -\ Demo.otf");
+}
+
+.container
+{
+    width: 60%;
+}
+
+.log_in
+{
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.site_name
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5em;
+    font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
+}
+
+.input
+{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1.5px solid rgb(142, 142, 142);
+}
+
+.item
+{
+    color: rgb(140, 140, 140);
+}
+
+.log_button, .sign_button
+{
+    color: white;
+    background-color: rgb(179, 178, 178);
+    transition: .3s;
+    border-radius: 20px;
+    margin-top: 1em;
+}
+
+.botona
+{
+    display: flex;
+    justify-content: center;
+}
+
+.log_with_google, .log_with_fb
+{
+    width: 100%;
+}
+
+.log_with_google
+{
+    margin-top: .4em;
+}
+
+i
+{
+    font-size: 1.5em;
+    margin-right: 1em;
+}
+
+.lien
+{
+    display: flex;
+    justify-content: center;
+}
+
+/* sign in */
+.sign_button
+{
+    width: 35%;
+}
+.site_name_signin
+{
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    font-family: "Tornado\ Italic\ Serif\ Font\ -\ Demo";
+}
