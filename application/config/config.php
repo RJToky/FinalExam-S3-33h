@@ -23,7 +23,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+
+// For alwaysdata
+//$config['base_url'] = 'http://rjtoky.alwaysdata.net/e-fanakalo/';
+
+// For localhost
+$config['base_url'] = 'http://localhost/e-fanakalo/';
 
 /*
 |--------------------------------------------------------------------------
