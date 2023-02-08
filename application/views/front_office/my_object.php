@@ -8,7 +8,7 @@
 <main>
     <div class="columns is-flex-wrap-wrap">
         <?php for($i = 0; $i < count($listMyObject); $i++) { ?>
-            <div class="column is-one-quarter">
+            <a href="<?php echo base_url() . "front_office/historiqueController?idObjet=" . $listMyObject[$i]["idObjet"]; ?>" class="column is-one-quarter">
                 <div class="box">
                     <p class="subtitle is-4 item"> <?php echo $listMyObject[$i]["nomObj"]; ?> </p>
                     <figure class="image is-128x128" style="margin: auto; overflow: hidden;">
@@ -20,10 +20,10 @@
                     <br>
 <!--                    <button class="button is-success"> Echanger </button>-->
                 </div>
-            </div>
+            </a>
         <?php } ?>
     </div>
-    <button class="js-modal-trigger button is-link add_btn" data-target="modal-add-objet">
+    <button class="js-modal-trigger button is-info add_btn" data-target="modal-add-objet">
         <figure class="icon">
             <i class="fas fa-plus"></i>
         </figure>

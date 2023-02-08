@@ -6,7 +6,7 @@
 <main>
     <div class="columns is-flex-wrap-wrap">
         <?php for($i = 0; $i < count($result); $i++) { ?>
-            <div class="column is-one-quarter">
+            <a href="<?php echo base_url() . "front_office/historiqueController?idObjet=" . $result[$i]["idObjet"]; ?>" class="column is-one-quarter">
                 <div class="box">
                     <form action="<?php echo base_url("front_office/transactionController"); ?>" method="post">
                         <p class="subtitle is-4 item"> <?php echo $result[$i]["nomObj"]; ?> </p>
@@ -20,7 +20,7 @@
                         <button class="button is-success"> Echanger </button>
                     </form>
                 </div>
-            </div>
+            </a>
         <?php } ?>
     </div>
 </main>

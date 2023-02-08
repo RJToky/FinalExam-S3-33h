@@ -1,5 +1,7 @@
 .add_btn
 {
+    width: 3em;
+    height: 3em;
     border-radius: 100%;
     position: fixed;
     bottom: 10%;

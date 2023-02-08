@@ -89,6 +89,21 @@ insert into photoObj values(default,10,'ordinateur.jpg');
 insert into photoObj values(default,11,'souris.jpg');
 insert into photoObj values(default,12,'Unite_central.jpg');
 
+insert into historique values (default,2,1,now());
+insert into historique values (default,2,2,now());
+insert into historique values (default,3,3,now());
+insert into historique values (default,3,4,now());
+insert into historique values (default,2,5,now());
+insert into historique values (default,3,6,now());
+insert into historique values (default,2,7,now());
+insert into historique values (default,2,8,now());
+insert into historique values (default,3,9,now());
+insert into historique values (default,3,10,now());
+insert into historique values (default,2,11,now());
+insert into historique values (default,3,12,now());
+insert into historique values (default,2,4,now());
+insert into historique values (default,3,2,now());
+
 insert into takalo values(default, 2, 4, 1);
 
 create or replace view objectUser as
@@ -111,11 +126,9 @@ INSERT INTO historique VALUES(default,2,1,NOW());
 -- drop table categories cascade;
 -- drop table personne cascade;
 
-
-SELECT * FROM objectUser
-WHERE idObjet
-IN (SELECT idAlefa FROM takalo
-WHERE idAlaina
-IN (SELECT idObjet FROM objectUser WHERE idPers = 2))
-
-SELECT * FROM takalo WHERE idAlaina;
+-- get historiques
+SELECT objet.idObjet, objet.nomObj, personne.nomPers, DATE(historique.dateHeureHisto) AS daty, TIME(historique.dateHeureHisto) AS lera
+FROM historique
+    JOIN personne ON personne.idPers = historique.idPers
+    JOIN objet ON objet.idObjet = historique.idObjet
+WHERE historique.idObjet = 2;
