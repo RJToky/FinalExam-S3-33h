@@ -47,6 +47,14 @@ class Takalo extends CI_Model {
 
         $this->db->query($sql);
     }
+    
+    public function getNbrExchangeClose() {
+        $sql = "SELECT COUNT(idTakalo) AS nbr FROM takalo WHERE isTakalo = 1";
+        $query = $this->db->query($sql);
+
+        $row = $query->row_array();
+        return $row["nbr"];
+    }
 
     /**
      * @return mixed

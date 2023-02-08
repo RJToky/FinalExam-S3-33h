@@ -6,16 +6,21 @@ class HomeController extends SecureController {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model("categories");
         $this->load->model("objet");
+        $this->load->model("personne");
+        $this->load->model("takalo");
     }
     
     public function index() {
         $categ = new Categories();
         $obj = new Objet();
+        $personne = new Personne();
+        $takalo = new Takalo();
 
         $data["listCateg"] = $categ->getListCategories();
         $data["listObj"] = $obj->getListObject();
+        $data["nbrUser"] = $personne->getNbrUserRegistred();
+        $data["nbrExchangeClose"] = $takalo->getNbrExchangeClose();
 
         $this->load->view("back_office/header");
         $this->load->view("back_office/gestion_categ", $data);
