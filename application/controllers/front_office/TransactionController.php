@@ -10,7 +10,10 @@ class TransactionController extends SecureController {
     }
     
     public function index() {
-        $this->load->view("front_office/header");
+        $categ = new Categories();
+        $data["listCateg"] = $categ->getListCategories();
+
+        $this->load->view("front_office/header", $data);
         $this->load->view("front_office/transaction");
         $this->load->view("footer");
     }
