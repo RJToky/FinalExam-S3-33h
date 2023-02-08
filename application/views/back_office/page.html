@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/page.css">
-    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-    <script type="text/javascript" src="../assets/js/chart.js"></script>
+    <script src="../assets/ChartJs/chart.js" defer></script>
+    <script src="../assets/ChartJs/chart.umd.js" defer></script>
+    <script src="../assets/js/chart.js" defer></script>
     <script src="../assets/js/script.js"></script>
     <title>e-Fanakalo</title>
 </head>
@@ -63,17 +64,30 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="button is-info js-modal-trigger" data-target="modal-js-example">
+            <button class="button is-primary stat_echange js-modal-trigger" data-target="modal-js-echange">
+              <img src="../assets/font/fa-shop.png">
+            </button>
+            <button class="button is-info js-modal-trigger" data-target="modal-js-user">
               <img src="../assets/font/chart-bar-solid.svg">
             </button>
         </div>
 
-        <!-- eto ny modal an'ny statistique -->
-        <div id="modal-js-example" class="modal">
+        <!-- eto ny modal an'ny statistique user -->
+        <div id="modal-js-user" class="modal">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="box">
-                    <canvas id="statistique" aria-label="chart" role="img"></canvas>
+                    <canvas id="stat_user" aria-label="chart" role="img" width="100%"></canvas>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+        <!-- eto ny modal an'ny statistique echange -->
+        <div id="modal-js-echange" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <canvas id="stat_echange" aria-label="chart" role="img" width="100%"></canvas>
                 </div>
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
