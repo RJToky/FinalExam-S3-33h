@@ -105,14 +105,13 @@ insert into historique values (default,2,4,now());
 insert into historique values (default,3,2,now());
 
 insert into takalo values(default, 2, 4, 1);
+insert into takalo values(default, 6, 11, 0);
 
 create or replace view objectUser as
     select objet.idObjet, objet.nomObj, photoObj.nomPhoto, objet.prixObj, personne.idPers, personne.nomPers
         from objet
         join photoObj on photoObj.idObjet = objet.idObjet
         join personne on personne.idPers = objet.idPers;
-
-INSERT INTO historique VALUES(default,2,1,NOW());
 
 -- get proposition
 -- select * from objectUser
@@ -127,8 +126,26 @@ INSERT INTO historique VALUES(default,2,1,NOW());
 -- drop table personne cascade;
 
 -- get historiques
-SELECT objet.idObjet, objet.nomObj, personne.nomPers, DATE(historique.dateHeureHisto) AS daty, TIME(historique.dateHeureHisto) AS lera
-FROM historique
-    JOIN personne ON personne.idPers = historique.idPers
-    JOIN objet ON objet.idObjet = historique.idObjet
-WHERE historique.idObjet = 2;
+-- SELECT objet.idObjet, objet.nomObj, personne.nomPers, DATE(historique.dateHeureHisto) AS daty, TIME(historique.dateHeureHisto) AS lera
+-- FROM historique
+--     JOIN personne ON personne.idPers = historique.idPers
+--     JOIN objet ON objet.idObjet = historique.idObjet
+-- WHERE historique.idObjet = 2;
+
+
+-- SELECT takalo.idAlefa AS idolona, takalo.idAlaina AS idzah, objet.nomObj, photoObj.nomPhoto, objet.prixObj, personne.nomPers, (SELECT objet.nomObj FROM takalo JOIN objet ON objet.idObjet = takalo.idAlaina WHERE takalo.isTakalo = 0 AND) AS anah
+-- FROM takalo
+--      JOIN objet ON objet.idObjet = takalo.idAlefa
+--      JOIN photoObj ON photoObj.idObjet = takalo.idAlefa
+--      JOIN personne ON personne.idPers = objet.idPers
+-- WHERE takalo.isTakalo = 0;
+
+-- SELECT ou.* FROM takalo t
+-- JOIN objectUser ou on ou.idObjet = t.idAlefa
+-- WHERE t.idAlaina IN (SELECT idObjet FROM objet WHERE idPers = 4)
+-- AND isTakalo = 0;
+--
+-- SELECT ou.* FROM takalo t
+-- JOIN objectUser ou on ou.idObjet = t.idAlaina
+-- WHERE t.idAlaina IN (SELECT idObjet FROM objet WHERE idPers = 4)
+-- AND isTakalo = 0;

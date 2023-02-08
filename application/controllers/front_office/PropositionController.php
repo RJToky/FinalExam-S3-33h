@@ -13,7 +13,9 @@ class PropositionController extends SecureController {
         $objUser = new ObjectUser();
         $categ = new Categories();
 
-        $data["listProposition"] = $objUser->getListProposition($this->session->idPers);
+        $data["listProposition"] = $objUser->getListObjectProposition($this->session->idPers);
+        $data["listPropositionToMe"] = $objUser->getListObjectProposeToMe($this->session->idPers);
+        
         $data["listCateg"] = $categ->getListCategories();
         $data["active"] = "proposition";
 

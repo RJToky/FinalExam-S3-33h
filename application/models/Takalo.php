@@ -34,11 +34,15 @@ class Takalo extends CI_Model {
         $sql5 = "INSERT INTO historique VALUES (DEFAULT, %s, %s, now())";
         $sql5 = sprintf($sql5, $this->db->escape($idPers), $this->db->escape($idMyObject));
 
+        $sql6 = "UPDATE takalo SET isTakalo = 1 WHERE idAlefa = %s AND idAlaina = %s";
+        $sql6 = sprintf($sql6, $this->db->escape($idHisObject), $this->db->escape($idMyObject));
+
         $this->db->query($sql1);
         $this->db->query($sql2);
         $this->db->query($sql3);
         $this->db->query($sql4);
         $this->db->query($sql5);
+        $this->db->query($sql6);
     }
     
     public function refuseTakalo($idHisObject, $idMyObject) {
