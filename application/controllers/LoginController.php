@@ -7,11 +7,17 @@ class LoginController extends CI_Controller {
         parent::__construct();
         $this->load->model("personne");
     }
-    
-    public function index() {
-        $personne = new Personne();
 
-        $data["admin"] = $personne->getAdmin();
+    public function index() {
+        $data["email"] = "judi@gmail.com";
+        $data["pwd"] = "judi";
+        $this->load->view("login", $data);
+    }
+
+//    Admin par defaut
+    public function index_2() {
+        $data["email"] = "toky@gmail.com";
+        $data["pwd"] = "toky";
         $this->load->view("login", $data);
     }
 
