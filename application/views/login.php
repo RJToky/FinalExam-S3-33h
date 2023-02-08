@@ -1,6 +1,7 @@
 <?php
 /**
- * @var mixed $admin
+ * @var string $email
+ * @var string $pwd
  */
 ?>
 
@@ -30,10 +31,10 @@
                             <p class="subtitle is-2 site_name"> e-Fanakalo </p>
                             <br>
                             <p class="item"> Username or email : </p>
-                            <input class="input" type="text" placeholder="Username or email" name="email" value="<?php echo $admin["email"]; ?>" required>
+                            <input class="input" type="text" placeholder="Username or email" name="email" value="<?php echo $email; ?>" required>
                             <br><br>
                             <p class="item"> Password : </p>
-                            <input class="input" type="password" placeholder="Password" name="pwd" value="<?php echo $admin["pwd"]; ?>" required>
+                            <input class="input" type="password" placeholder="Password" name="pwd" value="<?php echo $pwd; ?>" required>
                             <br><br>
                             <div class="botona">
                                 <button class="button log_button"> Se connecter </button>

@@ -32,20 +32,6 @@ class Personne extends CI_Model {
 
         $this->db->query($sql);
     }
-
-    public function getAdmin() {
-        $sql = "SELECT email, pwd FROM personne WHERE isAdmin = 1";
-        $query = $this->db->query($sql);
-
-        foreach ($query->result_array() as $row) {
-            $data = array(
-                "email" => $row["email"],
-                "pwd" => $row["pwd"]
-            );
-        }
-        /** @var mixed $data */
-        return $data;
-    }
     
     public function getNbrUserRegistred() {
         $sql = "SELECT COUNT(idPers) AS nbr FROM personne WHERE isAdmin = 0";
