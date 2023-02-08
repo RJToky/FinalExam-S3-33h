@@ -46,6 +46,14 @@ class Personne extends CI_Model {
         /** @var mixed $data */
         return $data;
     }
+    
+    public function getNbrUserRegistred() {
+        $sql = "SELECT COUNT(idPers) AS nbr FROM personne WHERE isAdmin = 0";
+        $query = $this->db->query($sql);
+
+        $row = $query->row_array();
+        return $row["nbr"];
+    }
 
     /**
      * @return mixed

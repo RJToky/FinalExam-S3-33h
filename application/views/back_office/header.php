@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("assets/css/footer.css"); ?>">
         <link rel="shortcut icon" href="<?php echo base_url("assets/img/logoPage.jpg"); ?>" type="image/x-icon">
+        <script src="<?php echo base_url("assets/js/script.js"); ?>"></script>
         <title>e-Fanakalo</title>
     </head>
     <body>

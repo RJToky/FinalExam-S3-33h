@@ -8,6 +8,7 @@ class SecureController extends CI_Controller {
         if(!$this->session->has_userdata("idPers")) {
             redirect("loginController/");
         }
+        $this->load->model("categories");
     }
     
     public function index() {

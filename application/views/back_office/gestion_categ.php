@@ -2,6 +2,8 @@
 /**
  * @var mixed $listCateg
  * @var mixed $listObj
+ * @var int $nbrUser
+ * @var int $nbrExchangeClose
  */
 ?>
 <main>
@@ -48,5 +50,28 @@
                 <?php } ?>
             </tbody>
         </table>
+        <button class="button is-info js-modal-trigger" data-target="modal-js-user">
+            <img src="<?php echo base_url("assets/font/chart-bar-solid.svg"); ?>" style="filter: invert(1);">
+        </button>
+    </div>
+
+    <!-- eto ny modal an'ny statistique -->
+    <div id="modal-js-user" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <div class="columns">
+                    <div class="column">
+                        <p class="subtitle is-3"  style="display: flex; justify-content: center; align-items: center;"> Nombre d'user </p>
+                        <p style="font-weight: bold; font-size: 50px; display: flex; justify-content: center;"> <?php echo $nbrUser; ?> </p>
+                    </div>
+                    <div class="column">
+                        <p class="subtitle is-3"  style="display: flex; justify-content: center; align-items: center;"> Nombre d'échange </p>
+                        <p style="font-weight: bold; font-size: 50px; display: flex; justify-content: center;"> <?php echo $nbrExchangeClose; ?> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 </main>

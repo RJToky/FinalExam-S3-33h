@@ -37,6 +37,57 @@ class ObjectUser extends CI_Model {
         return $data;
     }
 
+    public function getListProposition($idUserConnected) {
+        $sql = "SELECT * FROM objectUser
+                WHERE idObjet   
+                IN (SELECT idAlefa FROM takalo 
+                WHERE idAlaina 
+                IN (SELECT idObjet FROM objectUser WHERE idPers = %s))";
+
+        $sql = sprintf($sql, $this->db->escape($idUserConnected));
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+    public function searchObjet($cle, $idCat, $idUserConnected) {
+        if($idCat == 0) {
+            $sql = "SELECT * FROM objectUser
+            WHERE idObjet
+            IN (SELECT idObjet FROM objet
+            WHERE description LIKE '%$cle%')
+            AND idPers != $idUserConnected";
+
+        } else {
+            $sql = "SELECT * FROM objectUser
+            WHERE idObjet
+            IN (SELECT idObjet FROM objet
+            WHERE description LIKE '%$cle%' AND idCat = $idCat)
+            AND idPers != $idUserConnected";
+        }
+
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+    public function getOneObjectUser($idObjet, $idPers) {
+        $sql = "SELECT * FROM objectUser WHERE idObjet = %s AND idPers = %s";
+        $sql = sprintf($sql, $this->db->escape($idObjet), $this->db->escape($idPers));
+        $query = $this->db->query($sql);
+
+        $row = $query->row_array();
+        return $row;
+    }
+
     /**
      * @return mixed
      */

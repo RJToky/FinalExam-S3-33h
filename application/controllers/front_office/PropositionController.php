@@ -1,15 +1,24 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class PropositionController extends CI_Controller {
+include "SecureController.php";
+class PropositionController extends SecureController {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model("objectUser");
     }
     
     public function index() {
-        $this->load->view("front_office/header");
-        $this->load->view("front_office/proposition");
+        $objUser = new ObjectUser();
+        $categ = new Categories();
+
+        $data["listProposition"] = $objUser->getListProposition($this->session->idPers);
+        $data["listCateg"] = $categ->getListCategories();
+        $data["active"] = "proposition";
+
+        $this->load->view("front_office/header", $data);
+        $this->load->view("front_office/proposition", $data);
         $this->load->view("footer");
     }
     

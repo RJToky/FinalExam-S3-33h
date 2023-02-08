@@ -1,3 +1,9 @@
+<?php
+/**
+ * @var mixed $listCateg
+ * @var string $active
+ */
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,6 +15,7 @@
         <link rel="stylesheet" href="<?php echo base_url("assets/css/header.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("assets/css/footer.css"); ?>">
         <link rel="shortcut icon" href="<?php echo base_url("assets/img/logoPage.jpg"); ?>" type="image/x-icon">
+        <script src="<?php echo base_url("assets/js/script.js"); ?>"></script>
         <title>e-Fanakalo</title>
     </head>
     <body>
@@ -27,26 +34,41 @@
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
-                        <a class="navbar-item" href="<?php echo base_url("front_office/homeController"); ?>">
+                        <a class="navbar-item" href="<?php echo base_url("front_office/homeController"); ?>" style="<?php if($active == "list_object") { ?>background-color: #fafafa; color: #485fc7;<?php } ?>">
                             List object
                         </a>
 
-                        <a class="navbar-item" href="<?php echo base_url("front_office/myObjectController"); ?>">
+                        <a class="navbar-item" href="<?php echo base_url("front_office/myObjectController"); ?>" style="<?php if($active == "my_object") { ?>background-color: #fafafa; color: #485fc7;<?php } ?>">
                             My object
                         </a>
 
-                        <a class="navbar-item" href="<?php echo base_url("front_office/propositionController"); ?>">
+                        <a class="navbar-item" href="<?php echo base_url("front_office/propositionController"); ?>" style="<?php if($active == "proposition") { ?>background-color: #fafafa; color: #485fc7;<?php } ?>">
                             Proposition
                         </a>
                     </div>
                     <div class="navbar-end">
-                        <div class="navbar-item">
+                        <form action="<?php echo base_url("front_office/resultController/"); ?>" method="post">
+                        <div class="navbar-item" style="display: flex">
+                                <input class="input" type="text" placeholder="Entrer un mot-clé" name="cle">
+                                <div class="select" style="width: 100%; margin-left: 1em;">
+                                    <select class="input" name="idCat">
+                                        <option value="0">Tous</option>
+                                        <?php for($i = 0; $i < count($listCateg); $i++) { ?>
+                                            <option value="<?php echo $listCateg[$i]["idCat"]; ?>"><?php echo $listCateg[$i]["nomCat"]; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <button class="button is-light" style="width: 50%; margin-right: 1em; margin-left: 1em;">
+                                    Search
+                                </button>
                             <div class="buttons">
                                 <a class="button is-warning" href="<?php echo base_url("loginController/logout"); ?>">
                                     Log out
                                 </a>
                             </div>
                         </div>
+
+                        </form>
                     </div>
                 </div>
             </nav>

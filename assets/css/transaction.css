@@ -1,0 +1,12 @@
+.page_echange
+{
+    display: flex;
+    justify-content: center;
+}
+
+.column_icon
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -48,6 +48,7 @@ class Objet extends CI_Model {
         $row = $query->row_array();
         return $row["lastId"];
     }
+
     /**
      * @return mixed
      */

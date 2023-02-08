@@ -1,36 +1,28 @@
+<?php
+/**
+ * @var mixed $listProposition
+ */
+?>
 <main>
     <div class="columns is-flex-wrap-wrap">
-        <div class="column is-one-quarter">
-            <div class="box">
-                <p class="subtitle is-4 item"> Nom produit </p>
-                <figure class="image is-128x128" style="margin: auto; overflow: hidden;">
-                    <img src="<?php echo base_url("assets/img/inscription.jfif"); ?>">
-                </figure>
-                <br>
-                <p class="item"> 0000 Ar </p>
-                <p class="item"> Appartient à Personne </p>
-                <br>
-                <div class="buttons is-flex-wrap-nowrap">
-                    <button class="button is-success"> Accepter </button>
-                    <button class="button is-danger"> Decliner </button>
+        <?php for($i = 0; $i < count($listProposition); $i++) { ?>
+            <div class="column is-one-quarter">
+                <div class="box">
+                    <p class="subtitle is-4 item"> <?php echo $listProposition[$i]["nomObj"]; ?> </p>
+                    <figure class="image is-128x128" style="margin: auto; overflow: hidden;">
+                        <img src="<?php echo base_url("assets/img/" . $listProposition[$i]["nomPhoto"]); ?>">
+                    </figure>
+                    <br>
+                    <p class="item"> <?php echo $listProposition[$i]["prixObj"]; ?> Ar </p>
+                    <p class="item"> Appartient à <?php echo $listProposition[$i]["nomPers"]; ?> </p>
+                    <p class="item"> Contre votre objet Unite centrale </p>
+                    <br>
+                    <div class="buttons is-flex-wrap-nowrap">
+                        <button class="button is-success"><a href="<?php echo base_url() . "front_office/transactionController/treatProposition?response=1&idHisObject=" . $listProposition[$i]["idObjet"] . "&idPers=" . $listProposition[$i]["idPers"] . "&"; ?>" style="color: white"> Accepter </a></button>
+                        <button class="button is-danger"><a href="" style="color: white"> Decliner </a> </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="column is-one-quarter">
-            <div class="box">
-                <p class="subtitle is-4 item"> Nom produit </p>
-                <figure class="image is-128x128" style="margin: auto; overflow: hidden;">
-                    <img src="<?php echo base_url("assets/img/inscription.jfif"); ?>">
-                </figure>
-                <br>
-                <p class="item"> 0000 Ar </p>
-                <p class="item"> Appartient à Personne </p>
-                <br>
-                <div class="buttons is-flex-wrap-nowrap">
-                    <button class="button is-success"> Accepter </button>
-                    <button class="button is-danger"> Decliner </button>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
 </main>
