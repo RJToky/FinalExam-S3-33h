@@ -12,7 +12,7 @@
                 <div class="box">
                     <p class="subtitle is-4 item"> <?php echo $listMyObject[$i]["nomObj"]; ?> </p>
                     <figure class="image is-128x128" style="margin: auto; overflow: hidden;">
-                        <img src="<?php echo base_url("assets/img/" . $listMyObject[$i]["nomPhoto"]); ?>">
+                        <img src="<?php echo base_url("assets/img/" . $listMyObject[$i]["nomPhoto"]); ?>" alt="<?php echo $listMyObject[$i]["nomObj"]; ?>">
                     </figure>
                     <br>
                     <p class="item"> <?php echo $listMyObject[$i]["prixObj"]; ?> Ar </p>
@@ -28,7 +28,7 @@
             <i class="fas fa-plus"></i>
         </figure>
     </button>
-    <form action="<?php echo base_url("front_office/myObjectController/uploadObject"); ?>" method="post">
+    <form action="<?php echo base_url("front_office/myObjectController/uploadObject"); ?>" method="post" enctype="multipart/form-data">
         <div id="modal-add-objet" class="modal">
             <div class="modal-background"></div>
             <div class="modal-content">

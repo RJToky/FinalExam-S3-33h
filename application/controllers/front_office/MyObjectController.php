@@ -7,6 +7,7 @@ class MyObjectController extends CI_Controller {
         parent::__construct();
         $this->load->model("objectUser");
         $this->load->model("objet");
+        $this->load->helper("my");
     }
     
     public function index() {
@@ -25,18 +26,15 @@ class MyObjectController extends CI_Controller {
         $nomObj = $this->input->post("nomObj");
         $description = $this->input->post("description");
         $prixObj = $this->input->post("prixObj");
-        $nomPhoto = $this->input->post("nomPhoto");
 
-//        $obj = new Objet();
-//        $obj->addObject($idPers, $nomObj, $description, $prixObj, $nomPhoto);
+        $nomPhoto = uploadImage($_FILES["nomPhoto"]);
 
-//        $dossier = '../assets/img/';
-//
-//        $newNamer = randomName().".jpg";
-//
-//        if(move_uploaded_file($file['tmp_name'], $dossier . $newNamer)) {
-//            return $newNamer;
-//        }
+        if($nomPhoto != "non") {
+            $obj = new Objet();
+            $obj->addObject($idPers, $nomObj, $description, $prixObj, $nomPhoto);
+        }
+        redirect(base_url("front_office/myObjectController/"));
+
     }
     
 }
