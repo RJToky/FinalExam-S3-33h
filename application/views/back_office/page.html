@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../assets/css/header.css">
     <link rel="stylesheet" href="../assets/css/footer.css">
     <link rel="stylesheet" href="../assets/css/page.css">
-    <script src="../assets/ChartJs/chart.js" defer></script>
-    <script src="../assets/ChartJs/chart.umd.js" defer></script>
-    <script src="../assets/js/chart.js" defer></script>
     <script src="../assets/js/script.js"></script>
     <title>e-Fanakalo</title>
 </head>
@@ -31,6 +28,7 @@
             <div id="navbarBasicExample" class="navbar-menu">
           
               <div class="navbar-end">
+                <p class="subtitle is-4"> ADMIN </p>
                 <div class="navbar-item">
                   <div class="buttons">
                     <a class="button is-warning">
@@ -64,30 +62,26 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="button is-primary stat_echange js-modal-trigger" data-target="modal-js-echange">
-              <img src="../assets/font/fa-shop.png">
-            </button>
             <button class="button is-info js-modal-trigger" data-target="modal-js-user">
-              <img src="../assets/font/chart-bar-solid.svg">
+              <img src="../assets/font/chart-bar-solid.svg" style="filter: invert(1);">
             </button>
         </div>
 
-        <!-- eto ny modal an'ny statistique user -->
+        <!-- eto ny modal an'ny statistique -->
         <div id="modal-js-user" class="modal">
             <div class="modal-background"></div>
             <div class="modal-content">
                 <div class="box">
-                    <canvas id="stat_user" aria-label="chart" role="img" width="100%"></canvas>
-                </div>
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-        </div>
-        <!-- eto ny modal an'ny statistique echange -->
-        <div id="modal-js-echange" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <canvas id="stat_echange" aria-label="chart" role="img" width="100%"></canvas>
+                    <div class="columns">
+                      <div class="column">
+                        <p class="subtitle is-3"  style="display: flex; justify-content: center; align-items: center;"> Nombre d'user </p>
+                        <p style="font-weight: bold; font-size: 50px; display: flex; justify-content: center;"> 00 </p>
+                      </div>
+                      <div class="column">
+                        <p class="subtitle is-3"  style="display: flex; justify-content: center; align-items: center;"> Nombre d'échange </p>
+                        <p style="font-weight: bold; font-size: 50px; display: flex; justify-content: center;"> 00 </p>
+                      </div>
+                    </div>
                 </div>
             </div>
             <button class="modal-close is-large" aria-label="close"></button>
