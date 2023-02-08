@@ -11,10 +11,12 @@ class HomeController extends SecureController {
     
     public function index() {
         $objUser = new ObjectUser();
+        $categ = new Categories();
 
         $data["listObjUser"] = $objUser->getListObjectUser($this->session->idPers);
+        $data["listCateg"] = $categ->getListCategories();
 
-        $this->load->view("front_office/header");
+        $this->load->view("front_office/header", $data);
         $this->load->view("front_office/list_object", $data);
         $this->load->view("footer");
     }

@@ -1,3 +1,6 @@
+<?php
+/** @var mixed $listCateg */
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -40,13 +43,28 @@
                         </a>
                     </div>
                     <div class="navbar-end">
+                        <form action="<?php echo base_url("front_office/resultController/"); ?>" method="post">
                         <div class="navbar-item">
+                                <input class="input" type="text" placeholder="Entrer un mot-clé" name="cle">
+                                <div class="select" style="width: 100%; margin-left: 1em;">
+                                    <select class="input" name="idCat">
+                                        <option value="0">Tous</option>
+                                        <?php for($i = 0; $i < count($listCateg); $i++) { ?>
+                                            <option value="<?php echo $listCateg[$i]["idCat"]; ?>"><?php echo $listCateg[$i]["nomCat"]; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                <button class="button is-light" style="width: 50%; margin-right: 1em; margin-left: 1em;">
+                                    Search
+                                </button>
                             <div class="buttons">
                                 <a class="button is-warning" href="<?php echo base_url("loginController/logout"); ?>">
                                     Log out
                                 </a>
                             </div>
                         </div>
+
+                        </form>
                     </div>
                 </div>
             </nav>
