@@ -38,6 +38,15 @@ CREATE TABLE takalo(
     foreign key (idAlaina) references objet(idObjet)
 );
 
+CREATE TABLE historique (
+    idHisto int PRIMARY KEY auto_increment,
+    idPers int , 
+    idObjet int,
+    dateHeureHisto datetime ,
+    foreign key (idPers) references personne(idPers),
+    foreign key (idObjet) references objet(idObjet)  
+);
+
 insert into personne values(default,'Toky','toky@gmail.com','toky',1);
 insert into personne values(default,'Judi','judi@gmail.com','judi',0);
 insert into personne values(default,'Mirindra','mirindra@gmail.com','mirindra',0);
@@ -81,7 +90,6 @@ insert into photoObj values(default,11,'souris.jpg');
 insert into photoObj values(default,12,'Unite_central.jpg');
 
 insert into takalo values(default, 1, 4, 1);
-
 
     select objet.idObjet, objet.nomObj, photoObj.nomPhoto, objet.prixObj, personne.idPers, personne.nomPers
         from objet
