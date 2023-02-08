@@ -12,7 +12,15 @@ class Historique extends CI_Model {
     }
     
     public function getHistoObject($idObjet) {
-        
+        $sql = "SELECT * FROM historique WHERE idObjet = %s";
+        $sql = sprintf($sql, $this->db->escape($idObjet));
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     /**

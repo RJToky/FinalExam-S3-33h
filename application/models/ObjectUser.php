@@ -54,6 +54,22 @@ class ObjectUser extends CI_Model {
         return $data;
     }
 
+    public function searchObjet($cle, $idCat) {
+        $sql = "SELECT * FROM objectUser
+            WHERE idObjet
+            IN (SELECT idObjet FROM objet
+            WHERE description LIKE '% " . $cle . " %' AND idCat = %s)";
+
+        $sql = sprintf($sql, $this->db->escape($idCat));
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
     /**
      * @return mixed
      */
