@@ -11,7 +11,7 @@ CREATE TABLE categories (
     nomCat varchar(50)
 );
 
-CREATE TABLE objet(
+CREATE TABLE objet (
     idObjet int PRIMARY KEY auto_increment,
     idPers int,
     idCat int,
@@ -22,20 +22,29 @@ CREATE TABLE objet(
     foreign key (idCat) references categories(idCat)
 );
 
-CREATE TABLE photoObj(
+CREATE TABLE photoObj (
     idPhotoObj int PRIMARY KEY auto_increment,
     idObjet int,
     nomPhoto varchar(50),
     foreign key (idObjet) references objet(idObjet)
 );
 
-CREATE TABLE takalo(
+CREATE TABLE takalo (
     idTakalo int PRIMARY KEY auto_increment,
     idAlefa int,
     idAlaina int,
     isTakalo boolean,
     foreign key (idAlefa) references objet(idObjet),
     foreign key (idAlaina) references objet(idObjet)
+);
+
+CREATE TABLE historique (
+    idHisto int PRIMARY KEY auto_increment,
+    idPers int,
+    idObjet int,
+    dateHeureHisto datetime,
+    foreign key (idPers) references personne(idPers),
+    foreign key (idObjet) references objet(idObjet)
 );
 
 insert into personne values(default,'Toky','toky@gmail.com','toky',1);
@@ -88,14 +97,16 @@ create or replace view objectUser as
         join photoObj on photoObj.idObjet = objet.idObjet
         join personne on personne.idPers = objet.idPers;
 
+INSERT INTO historique VALUES(default,2,1,NOW());
+
 -- get proposition
-select * from objectUser
-    where idObjet = (select idAlefa from takalo where idAlaina in (SELECT idObjet FROM objectUser WHERE idPers = 3))
+-- select * from objectUser
+--     where idObjet = (select idAlefa from takalo where idAlaina in (SELECT idObjet FROM objectUser WHERE idPers = 3))
 
-SELECT * FROM objectUser WHERE idPers = 2;
 
-drop table takalo cascade;
-drop table photoObj cascade;
-drop table objet cascade;
-drop table categories cascade;
-drop table personne cascade;
+-- drop table historique cascade;
+-- drop table takalo cascade;
+-- drop table photoObj cascade;
+-- drop table objet cascade;
+-- drop table categories cascade;
+-- drop table personne cascade;
