@@ -12,7 +12,12 @@ class Historique extends CI_Model {
     }
     
     public function getHistoObject($idObjet) {
-        $sql = "SELECT * FROM historique WHERE idObjet = %s";
+        $sql = "SELECT objet.idObjet, objet.nomObj, personne.nomPers, DATE(historique.dateHeureHisto) AS daty, TIME(historique.dateHeureHisto) AS lera
+                FROM historique
+                JOIN personne ON personne.idPers = historique.idPers
+                JOIN objet ON objet.idObjet = historique.idObjet
+                WHERE historique.idObjet = %s";
+
         $sql = sprintf($sql, $this->db->escape($idObjet));
         $query = $this->db->query($sql);
 

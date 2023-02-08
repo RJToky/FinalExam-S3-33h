@@ -39,6 +39,10 @@ class Objet extends CI_Model {
         $sql = "INSERT INTO photoObj VALUES (DEFAULT, %s, %s)";
         $sql = sprintf($sql, $this->db->escape($this->getLastId()), $this->db->escape($nomPhoto));
         $this->db->query($sql);
+
+        $sql = "INSERT INTO historique VALUES (DEFAULT, %s, %s, now())";
+        $sql = sprintf($sql, $this->db->escape($idPers), $this->db->escape($this->getLastId()));
+        $this->db->query($sql);
     }
 
     public function getLastId() {

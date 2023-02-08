@@ -13,7 +13,7 @@
             <p class="subtitle is-2 page_echange"> Page d'échange </p>
             <hr>
             <div class="columns">
-                <div class="column">
+                <a href="<?php echo base_url() . "front_office/historiqueController?idObjet=" . $objUser["idObjet"]; ?>" class="column">
                     <div class="box">
                         <p class="subtitle is-4 item"> <?php echo $objUser["nomObj"]; ?> </p>
                         <figure class="image is-128x128" style="margin: auto; overflow: hidden;">
@@ -27,7 +27,7 @@
                         <input type="hidden" name="idPers" value="<?php echo $objUser["idPers"]; ?>">
                         <button class="button is-success"> Proposer </button>
                     </div>
-                </div>
+                </a>
                 <div class="column column_icon">
                     <button class="button" style="height: 20%; width: 20%; border: 0px;">
                         <img src="<?php echo base_url("assets/font/fa-exchange.svg.png"); ?>" width="100%">

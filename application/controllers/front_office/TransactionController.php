@@ -49,7 +49,7 @@ class TransactionController extends SecureController {
 
         if($response == 1) {
             $takalo->accepteTakalo($idHisObject, $idPers, $idMyObject, $idUserConnected);
-        } else if($response == 0) {
+        } else {
             $takalo->refuseTakalo($idHisObject, $idMyObject);
         }
         redirect(base_url("front_office/homeController/"));

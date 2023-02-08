@@ -6,7 +6,7 @@
 <main>
     <div class="columns is-flex-wrap-wrap">
         <?php for($i = 0; $i < count($listObjUser); $i++) { ?>
-            <div class="column is-one-quarter">
+            <a href="<?php echo base_url() . "front_office/historiqueController?idObjet=" . $listObjUser[$i]["idObjet"]; ?>" class="column is-one-quarter">
                 <div class="box">
                     <form action="<?php echo base_url("front_office/transactionController"); ?>" method="get">
                         <p class="subtitle is-4 item"> <?php echo $listObjUser[$i]["nomObj"]; ?> </p>
@@ -22,7 +22,7 @@
                         <button class="button is-success"> Proposer </button>
                     </form>
                 </div>
-            </div>
+            </a>
         <?php } ?>
     </div>
 </main>

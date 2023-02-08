@@ -17,7 +17,7 @@ class Takalo extends CI_Model {
 
         $this->db->query($sql);
     }
-    
+
     public function accepteTakalo($idHisObject, $idPers, $idMyObject, $idUserConnected) {
         $sql1 = "UPDATE takalo SET isTakalo = 1 WHERE idAlefa = %s AND idAlaina = %s";
         $sql1 = sprintf($sql1, $this->db->escape($idHisObject), $this->db->escape($idMyObject));
@@ -28,17 +28,21 @@ class Takalo extends CI_Model {
         $sql3 = "UPDATE objet SET idPers = %s WHERE idObjet = %s";
         $sql3 = sprintf($sql3, $this->db->escape($idPers), $this->db->escape($idMyObject));
 
-        $sql4 = "INSERT INTO historique VALUES (DEFAULT, %s, %s, NOW())";
-        $sql2 = sprintf($sql2, $this->db->escape($idUserConnected), $this->db->escape($idHisObject));
+        $sql4 = "INSERT INTO historique VALUES (DEFAULT, %s, %s, now())";
+        $sql4 = sprintf($sql4, $this->db->escape($idUserConnected), $this->db->escape($idHisObject));
 
-        $sql5 = "INSERT INTO historique VALUES (DEFAULT, %s, %s, NOW())";
+        $sql5 = "INSERT INTO historique VALUES (DEFAULT, %s, %s, now())";
         $sql5 = sprintf($sql5, $this->db->escape($idPers), $this->db->escape($idMyObject));
+
+        $sql6 = "UPDATE takalo SET isTakalo = 1 WHERE idAlefa = %s AND idAlaina = %s";
+        $sql6 = sprintf($sql6, $this->db->escape($idHisObject), $this->db->escape($idMyObject));
 
         $this->db->query($sql1);
         $this->db->query($sql2);
         $this->db->query($sql3);
         $this->db->query($sql4);
         $this->db->query($sql5);
+        $this->db->query($sql6);
     }
     
     public function refuseTakalo($idHisObject, $idMyObject) {

@@ -14,8 +14,13 @@ class ObjectUser extends CI_Model {
     }
     
     public function getListObjectUser($idUserConnected) {
-        $sql = "SELECT * FROM objectUser WHERE idPers != %s";
-        $sql = sprintf($sql, $this->db->escape($idUserConnected));
+        $sql = "SELECT * FROM objectUser
+                WHERE idPers != %s AND idObjet
+                NOT IN (SELECT idAlefa FROM takalo
+                WHERE idAlaina
+                IN (SELECT idObjet FROM objet WHERE idPers = %s))";
+
+        $sql = sprintf($sql, $this->db->escape($idUserConnected), $this->db->escape($idUserConnected));
         $query = $this->db->query($sql);
 
         $data = array();
@@ -37,12 +42,27 @@ class ObjectUser extends CI_Model {
         return $data;
     }
 
-    public function getListProposition($idUserConnected) {
-        $sql = "SELECT * FROM objectUser
-                WHERE idObjet   
-                IN (SELECT idAlefa FROM takalo 
-                WHERE idAlaina 
-                IN (SELECT idObjet FROM objectUser WHERE idPers = %s))";
+    public function getListObjectProposition($idUserConnected) {
+        $sql = "SELECT ou.* FROM takalo t
+                JOIN objectUser ou on ou.idObjet = t.idAlefa
+                WHERE t.idAlaina IN (SELECT idObjet FROM objet WHERE idPers = %s)
+                AND isTakalo = 0";
+
+        $sql = sprintf($sql, $this->db->escape($idUserConnected));
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+    public function getListObjectProposeToMe($idUserConnected) {
+        $sql = "SELECT ou.* FROM takalo t
+                JOIN objectUser ou on ou.idObjet = t.idAlaina
+                WHERE t.idAlaina IN (SELECT idObjet FROM objet WHERE idPers = %s)
+                AND isTakalo = 0";
 
         $sql = sprintf($sql, $this->db->escape($idUserConnected));
         $query = $this->db->query($sql);

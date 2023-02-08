@@ -1,6 +1,7 @@
 <?php
 /**
  * @var mixed $listProposition
+ * @var mixed $listPropositionToMe
  */
 ?>
 <main>
@@ -15,11 +16,11 @@
                     <br>
                     <p class="item"> <?php echo $listProposition[$i]["prixObj"]; ?> Ar </p>
                     <p class="item"> Appartient à <?php echo $listProposition[$i]["nomPers"]; ?> </p>
-                    <p class="item"> Contre votre objet Unite centrale </p>
+                    <p class="item"> Contre votre objet <?php echo $listPropositionToMe[$i]["nomObj"]; ?> </p>
                     <br>
                     <div class="buttons is-flex-wrap-nowrap">
-                        <button class="button is-success"><a href="<?php echo base_url() . "front_office/transactionController/treatProposition?response=1&idHisObject=" . $listProposition[$i]["idObjet"] . "&idPers=" . $listProposition[$i]["idPers"] . "&"; ?>" style="color: white"> Accepter </a></button>
-                        <button class="button is-danger"><a href="" style="color: white"> Decliner </a> </button>
+                        <button class="button is-success"><a href="<?php echo base_url() . "front_office/transactionController/treatProposition?response=1&idHisObject=" . $listProposition[$i]["idObjet"] . "&idPers=" . $listProposition[$i]["idPers"] . "&idMyObject=" . $listPropositionToMe[$i]["idObjet"]; ?>" style="color: white"> Accepter </a></button>
+                        <button class="button is-danger"><a href="<?php echo base_url() . "front_office/transactionController/treatProposition?response=0&idHisObject=" . $listProposition[$i]["idObjet"] . "&idPers=" . $listProposition[$i]["idPers"] . "&idMyObject=" . $listPropositionToMe[$i]["idObjet"]; ?>" style="color: white"> Decliner </a> </button>
                     </div>
                 </div>
             </div>
