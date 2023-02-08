@@ -28,13 +28,3 @@ main
     width: 4%;
     height: 8%;
 }
-
-.stat_echange
-{
-    width: 4%;
-    height: 8%;
-    border-radius: 100%;
-    bottom: 22vh;
-    right: 9vh;
-    position: fixed;
-}
