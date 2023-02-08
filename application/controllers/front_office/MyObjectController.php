@@ -11,7 +11,6 @@ class MyObjectController extends CI_Controller {
     }
     
     public function index() {
-
         $objUser = new ObjectUser();
 
         $data["listMyObject"] = $objUser->getListMyObject($this->session->idPers);

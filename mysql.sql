@@ -80,13 +80,22 @@ insert into photoObj values(default,10,'ordinateur.jpg');
 insert into photoObj values(default,11,'souris.jpg');
 insert into photoObj values(default,12,'Unite_central.jpg');
 
+insert into takalo values(default, 2, 4, 1);
+
 create or replace view objectUser as
     select objet.idObjet, objet.nomObj, photoObj.nomPhoto, objet.prixObj, personne.idPers, personne.nomPers
         from objet
         join photoObj on photoObj.idObjet = objet.idObjet
         join personne on personne.idPers = objet.idPers;
 
--- drop table photoObj cascade;
--- drop table objet cascade;
--- drop table categories cascade;
--- drop table personne cascade;
+-- get proposition
+select * from objectUser
+    where idObjet = (select idAlefa from takalo where idAlaina in (SELECT idObjet FROM objectUser WHERE idPers = 3))
+
+SELECT * FROM objectUser WHERE idPers = 2;
+
+drop table takalo cascade;
+drop table photoObj cascade;
+drop table objet cascade;
+drop table categories cascade;
+drop table personne cascade;

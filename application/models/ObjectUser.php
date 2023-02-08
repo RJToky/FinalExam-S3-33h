@@ -37,6 +37,23 @@ class ObjectUser extends CI_Model {
         return $data;
     }
 
+    public function getListProposition($idUserConnected) {
+        $sql = "SELECT * FROM objectUser
+                WHERE idObjet   
+                IN (SELECT idAlefa FROM takalo 
+                WHERE idAlaina 
+                IN (SELECT idObjet FROM objectUser WHERE idPers = %s))";
+
+        $sql = sprintf($sql, $this->db->escape($idUserConnected));
+        $query = $this->db->query($sql);
+
+        $data = array();
+        foreach ($query->result_array() as $row) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
     /**
      * @return mixed
      */
