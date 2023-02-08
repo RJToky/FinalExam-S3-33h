@@ -47,5 +47,4 @@
     </form>
 
     <button class="modal-close is-large" aria-label="close"></button>
-    <script src="<?php echo base_url("assets/js/script.js"); ?>"></script>
 </main>

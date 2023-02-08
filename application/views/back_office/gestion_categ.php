@@ -6,7 +6,6 @@
  * @var int $nbrExchangeClose
  */
 ?>
-<script src="<?php echo base_url("assets/js/script.js"); ?>"></script>
 <main>
     <div class="container">
         <table class="table">

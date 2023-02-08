@@ -7,25 +7,44 @@ class TransactionController extends SecureController {
     public function __construct() {
         parent::__construct();
         $this->load->model("takalo");
+        $this->load->model("objectUser");
     }
     
     public function index() {
         $categ = new Categories();
+        $objUser = new ObjectUser();
+
+        $idHisObject = $this->input->get("idHisObject");
+        $idPers = $this->input->get("idPers");
+
         $data["listCateg"] = $categ->getListCategories();
+        $data["objUser"] = $objUser->getOneObjectUser($idHisObject, $idPers);
+        $data["listMyObject"] = $objUser->getListMyObject($this->session->idPers);
+        $data["active"] = "list_object";
 
         $this->load->view("front_office/header", $data);
-        $this->load->view("front_office/transaction");
+        $this->load->view("front_office/transaction", $data);
         $this->load->view("footer");
     }
 
-    public function operation() {
+    public function sendProposition() {
         $idHisObject = $this->input->post("idHisObject");
-        $idPers = $this->input->post("idPers");
+        $idMyObject = $this->input->post("idMyObject");
 
-        $idMyObject = $this->input->post("idMyPost");
+        $takalo = new Takalo();
+        $takalo->proposeTakalo($idMyObject, $idHisObject);
+
+        redirect(base_url("front_office/homeController/"));
+    }
+
+    public function treatProposition() {
+        $idHisObject = $this->input->get("idHisObject");
+        $idPers = $this->input->get("idPers");
+
+        $idMyObject = $this->input->get("idMyObject");
         $idUserConnected = $this->session->idPers;
 
-        $response = $this->input->post("respone");
+        $response = $this->input->get("response");
         $takalo = new Takalo();
 
         if($response == 1) {
@@ -36,4 +55,11 @@ class TransactionController extends SecureController {
         redirect(base_url("front_office/homeController/"));
     }
     
+    public function selectOnChange() {
+        $objUser = new ObjectUser();
+
+        $idObjet = $this->input->get("idObjet");
+
+        echo json_encode($objUser->getOneObjectUser($idObjet, $this->session->idPers));
+    }
 }

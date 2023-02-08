@@ -15,6 +15,7 @@ class HomeController extends SecureController {
 
         $data["listObjUser"] = $objUser->getListObjectUser($this->session->idPers);
         $data["listCateg"] = $categ->getListCategories();
+        $data["active"] = "list_object";
 
         $this->load->view("front_office/header", $data);
         $this->load->view("front_office/list_object", $data);

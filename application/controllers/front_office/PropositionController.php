@@ -15,6 +15,7 @@ class PropositionController extends SecureController {
 
         $data["listProposition"] = $objUser->getListProposition($this->session->idPers);
         $data["listCateg"] = $categ->getListCategories();
+        $data["active"] = "proposition";
 
         $this->load->view("front_office/header", $data);
         $this->load->view("front_office/proposition", $data);

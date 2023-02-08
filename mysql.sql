@@ -110,3 +110,12 @@ INSERT INTO historique VALUES(default,2,1,NOW());
 -- drop table objet cascade;
 -- drop table categories cascade;
 -- drop table personne cascade;
+
+
+SELECT * FROM objectUser
+WHERE idObjet
+IN (SELECT idAlefa FROM takalo
+WHERE idAlaina
+IN (SELECT idObjet FROM objectUser WHERE idPers = 2))
+
+SELECT * FROM takalo WHERE idAlaina;

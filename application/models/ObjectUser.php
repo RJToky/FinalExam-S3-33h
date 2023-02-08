@@ -79,6 +79,15 @@ class ObjectUser extends CI_Model {
         return $data;
     }
 
+    public function getOneObjectUser($idObjet, $idPers) {
+        $sql = "SELECT * FROM objectUser WHERE idObjet = %s AND idPers = %s";
+        $sql = sprintf($sql, $this->db->escape($idObjet), $this->db->escape($idPers));
+        $query = $this->db->query($sql);
+
+        $row = $query->row_array();
+        return $row;
+    }
+
     /**
      * @return mixed
      */

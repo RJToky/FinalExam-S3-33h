@@ -17,6 +17,7 @@ class MyObjectController extends SecureController {
 
         $data["listMyObject"] = $objUser->getListMyObject($this->session->idPers);
         $data["listCateg"] = $categ->getListCategories();
+        $data["active"] = "my_object";
 
         $this->load->view("front_office/header", $data);
         $this->load->view("front_office/my_object", $data);

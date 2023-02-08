@@ -14,6 +14,7 @@ class ResultController extends SecureController {
         $categ = new Categories();
         $cle = $this->input->post("cle");
         $idCat = $this->input->post("idCat");
+        $data["active"] = "list_object";
 
         $data["result"] = $objUser->searchObjet($cle, $idCat, $this->session->idPers);
         $data["listCateg"] = $categ->getListCategories();
